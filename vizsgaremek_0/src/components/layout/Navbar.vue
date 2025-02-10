@@ -19,6 +19,9 @@
             <li class="nav-item">
               <RouterLink class="nav-link" to="/login">Bejelentkezés</RouterLink>
             </li>
+            <li class="nav-item">
+              <RouterLink class="nav-link" to="/registration">Regisztráció</RouterLink>
+            </li>
           </ul>
         </div>
       </div>
