@@ -2,33 +2,39 @@
     <section class="container">
         <h2>Bejelentkezés</h2>
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
+          <div>
                     <p>Jelentkezz be meglévő felhasználói fiókodba!</p>
-                    <form>
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email cím</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <form>
+                      <div class="input-group-sm">
+                        <label for="Email1" class="input-group-text">Email cím</label>
+                        <Field type="text" class="form-control" id="Email1" rules="required|email"/>
+                        <ErrorMessage name="email" as="div" class="alert alert-danger m-1"/>
                       </div>
-                      <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Jelszó</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
-                      </div>
-                      <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Emlékezz rám</label>
+                      <div class="input-group-sm">
+                        <label for="Password1" class="input-group-text">Jelszó</label>
+                        <Field type="password" class="form-control" id="Password1" rules="required|min:12"/>
+                        <ErrorMessage name="password" as="div" class="alert alert-danger m-1"/>
+                    </div>
+                      <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="Check1">
+                        <label class="form-check-label" for="Check1">Emlékezz rám</label>
                       </div>
                       <button type="submit" class="btn btn-success">Belépés</button>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
     </section>
 </template>
 
 <script>
+import { Form as VForm, Field, ErrorMessage } from 'vee-validate';
 export default{
-    name: "LoginView",
+  name: 'LoginView',
+  components:{
+    VForm,
+    Field,
+    ErrorMessage
+  }
 }
 </script>
 
