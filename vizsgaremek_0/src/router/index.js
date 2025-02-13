@@ -10,19 +10,31 @@ const router = createRouter({
     {
       path: '/',
       name: 'index',
-      component: IndexView
+      component: IndexView,
+      meta:{
+        title: "Főoldal"
+      }
     },
     {
       path: '/login',
       name: 'login',
-      component: LoginView
+      component: LoginView,
+      meta:{
+        title: "Bejelentkezés"
+      }
     },
     {
       path: '/registration',
       name: 'registration',
-      component: RegistrationView
+      component: RegistrationView,
+      meta:{
+        title: "Regisztráció"
+      }
     },
   ],
 })
-
+router.beforeEach((to,from, next)=>{
+  document.title = `${to.meta.title}`
+  next(); 
+})
 export default router
