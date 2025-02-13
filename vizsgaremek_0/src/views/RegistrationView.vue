@@ -6,21 +6,25 @@
                 <div class="col-12">
                     <p>Regisztrálj még ma!</p>
                     <form>
-                        <div class="mb-3">
-                        <label for="Username" class="form-label">Felhasználó név</label>
-                        <input type="username" class="form-control" id="username">
+                        <div class=" input-group-md">
+                        <label for="Username" class="input-group-text">Felhasználó név</label>
+                        <Field type="username" class="form-control" id="username" rules="required|max:64"/>
+                        <ErrorMessage name="username" as="div" class="alert alert-danger m-1"/>
                       </div>
-                      <div class="mb-3">
-                        <label for="Email" class="form-label">Email cím</label>
-                        <input type="email" class="form-control" id="email">
+                      <div class=" input-group-md">
+                        <label for="Email" class="input-group-text">Email cím</label>
+                        <Field type="email" class="form-control" id="email" rules="required|email"/>
+                        <ErrorMessage name="email" as="div" class="alert alert-danger m-1"/>
                       </div>
-                      <div class="mb-3">
-                        <label for="Password" class="form-label">Jelszó</label>
-                        <input type="password" class="form-control" id="password">
+                      <div class=" input-group-md">
+                        <label for="Password" class="input-group-text">Jelszó</label>
+                        <Field type="password" class="form-control" id="password" rules="required|min:12"/>
+                        <ErrorMessage name="password" as="div" class="alert alert-danger m-1"/>
                       </div>
-                      <div class="mb-3">
-                        <label for="Password" class="form-label">Jelszó Megerősítése</label>
-                        <input type="password" class="form-control" id="password">
+                      <div class=" input-group-md">
+                        <label for="PasswordConfirm" class="input-group-text">Jelszó Megerősítése</label>
+                        <Field type="password" class="form-control" id="passwordConfirm"/>
+                        <ErrorMessage name="username" as="div" class="alert alert-danger m-1"/>
                       </div>
                       <button type="submit" class="btn btn-success">Regisztráció</button>
                     </form>
@@ -31,8 +35,14 @@
 </template>
 
 <script>
+import { Form as VForm, Field, ErrorMessage } from 'vee-validate';
 export default{
     name: "RegistrationView",
+    components:{
+        VForm,
+        Field,
+        ErrorMessage
+    }
 }
 </script>
 
